@@ -13,7 +13,7 @@ Rover::Rover(int pin){
 }
 
 
-int Rover::irDistance(){                    //Calculate distance.
+int Rover::irDistance(){                                    //Calculate distance.
 
     int distance = 0;
     long ADC_result;
@@ -24,13 +24,13 @@ int Rover::irDistance(){                    //Calculate distance.
     }
 
     ADC_result = analogRead(sensorPin);
-    ADC_result = ADC_result * 500/1023;     //May be wrong. DEBUG. adc -> v
+    ADC_result = ADC_result * 500/1023;     
 
     if(ADC_result == 0){
-        ADC_result = 1;                     //Test.
+        ADC_result = 1;                                     //Prevents division by zero.
     }
 
-    ADC_result = 1280/ADC_result - 1;       //Distance formula.
+    ADC_result = 3200 / ADC_result - 3;                    //Distance formula. Converts V -> Cm.
     distance = (int)ADC_result;
 
     return distance;
