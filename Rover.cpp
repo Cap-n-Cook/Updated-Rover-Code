@@ -24,7 +24,7 @@ int Rover::irDistance(){                                    //Calculate distance
     }
 
     ADC_result = analogRead(sensorPin);
-    ADC_result = ADC_result * 500/1023;     
+    ADC_result = ADC_result * 500 / 1023;     
 
     if(ADC_result == 0){
         ADC_result = 1;                                     //Prevents division by zero.
